@@ -46,7 +46,7 @@ def save_memory(memory_input: MemoryInput, secure: str = Depends(get_api_key)):
     """
     # 1. Get embedding from Gemini
     try:
-        gemini_embed_url = f"https://generativelanugage.googleapis.com/v1beta/models/embedding-001:embedContent?key={GEMINI_API_KEY}"
+        gemini_embed_url = f"https://generativelanguage.googleapis.com/v1beta/models/embedding-001:embedContent?key={GEMINI_API_KEY}"
         response = requests.post(gemini_embed_url, json={"model": "models/embedding-001", "content": {"parts": [{"text": memory_input.text}]}})
         response.raise_for_status() # Raises an error for bad responses (4xx or 5xx)
         embedding = response.json()["embedding"]["values"]
